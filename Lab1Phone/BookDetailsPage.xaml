@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Phone.BookDetailsPage"
+             Title="Про книгу"
+             BackgroundColor="#1E1E1E">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Image x:Name="BookCover" HeightRequest="250" Aspect="AspectFit" />
+            <Label x:Name="TitleLabel" TextColor="White" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label x:Name="AuthorLabel" TextColor="Gray" FontSize="18" HorizontalOptions="Center" />
+            <Label x:Name="PagesLabel" TextColor="#2196F3" FontSize="14" HorizontalOptions="Center" />
+            <BoxView HeightRequest="1" Color="Gray" Margin="0,10" />
+            <Label Text="Короткий зміст:" TextColor="White" FontSize="18" FontAttributes="Bold" />
+            <Label x:Name="DescLabel" TextColor="LightGray" FontSize="16" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

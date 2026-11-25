@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Phone.MainPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#2C2C2C">
+
+    <Grid>
+        <Image x:Name="BackgroundImage" Aspect="AspectFill" />
+        <BoxView Color="Black" Opacity="0.6" />
+
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="15" Padding="30">
+
+            <Label Text="Оберіть локацію для фону:" FontSize="20" FontAttributes="Bold" TextColor="White" />
+            <Picker x:Name="LocationPicker" Title="Натисніть..." BackgroundColor="#F2F2F2" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Місто</x:String>
+                        <x:String>Ліс</x:String>
+                        <x:String>Гори</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <BoxView HeightRequest="2" Color="Gray" Margin="0,5" />
+
+            <Label Text="Введіть повідомлення:" FontSize="18" TextColor="White" />
+            <Entry x:Name="MessageEntry" Placeholder="Текст повідомлення..." BackgroundColor="White" TextColor="Black" />
+
+
+            <BoxView HeightRequest="2" Color="Gray" Margin="0,5" />
+
+            <Label Text="Таймер:" FontSize="18" TextColor="White" HorizontalOptions="Center" />
+
+            <Label x:Name="TimerLabel" 
+                   Text="00:00:00.0" 
+                   FontSize="36" 
+                   FontAttributes="Bold" 
+                   TextColor="#FFD700" 
+                   HorizontalOptions="Center" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button Text="Старт" Clicked="OnStartTimerClicked" BackgroundColor="#4CAF50" TextColor="White" />
+                <Button Text="Стоп" Clicked="OnStopTimerClicked" BackgroundColor="#F44336" TextColor="White" />
+                <Button Text="Скидання" Clicked="OnResetTimerClicked" BackgroundColor="#9E9E9E" TextColor="White" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

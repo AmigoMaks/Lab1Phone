@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Phone.LoginPage"
+             BackgroundColor="#2C2C2C">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="15" Padding="30" WidthRequest="350">
+        <Label Text="Книжковий Каталог" FontSize="28" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+        <Label x:Name="TimeLabel" Text="Час на вхід: 60 сек" FontSize="18" TextColor="#FF5252" HorizontalOptions="Center" />
+
+        <Entry x:Name="NameEntry" Placeholder="Ім'я (для реєстрації)" BackgroundColor="White" TextColor="Black" />
+        <Entry x:Name="LoginEntry" Placeholder="Логін" BackgroundColor="White" TextColor="Black" />
+        <Entry x:Name="PasswordEntry" Placeholder="Пароль" IsPassword="True" BackgroundColor="White" TextColor="Black" />
+
+        <Button x:Name="LoginBtn" Text="Увійти" Clicked="OnLoginClicked" BackgroundColor="#4CAF50" TextColor="White" CornerRadius="8" />
+        <Button x:Name="RegBtn" Text="Реєстрація (User)" Clicked="OnRegisterClicked" BackgroundColor="#2196F3" TextColor="White" CornerRadius="8" />
+        <Button x:Name="GuestBtn" Text="Увійти як Гість" Clicked="OnGuestClicked" BackgroundColor="#9E9E9E" TextColor="White" CornerRadius="8" />
+
+        <Label x:Name="StatusLabel" TextColor="#FFD700" HorizontalOptions="Center" FontAttributes="Bold" />
+    </VerticalStackLayout>
+</ContentPage>

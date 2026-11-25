@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1Phone.CatalogPage"
+             Title="Каталог книг"
+             BackgroundColor="#1E1E1E">
+
+    <Grid RowDefinitions="Auto, Auto, *">
+        <HorizontalStackLayout Grid.Row="0" Padding="15" BackgroundColor="#333333">
+            <Label x:Name="UserInfoLabel" TextColor="White" FontSize="16" FontAttributes="Bold" />
+            <Label x:Name="AdminBadge" Text=" [АДМІНІСТРАТОР]" TextColor="#FF5252" IsVisible="False" FontAttributes="Bold" />
+        </HorizontalStackLayout>
+
+        <Picker x:Name="CategoryPicker" Grid.Row="1" Margin="15" BackgroundColor="White" TextColor="Black" Title="Оберіть рубрику..." SelectedIndexChanged="OnCategoryChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Всі</x:String>
+                    <x:String>Фантастика</x:String>
+                    <x:String>Детектив</x:String>
+                    <x:String>Поезія</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <CollectionView x:Name="BooksCollection" Grid.Row="2" Margin="15">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#2C2C2C" Margin="0,0,0,10" Padding="10" StrokeThickness="0" StrokeShape="RoundRectangle 8">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBookTapped" CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="80, *">
+                            <Image Source="{Binding ImageUrl}" WidthRequest="70" HeightRequest="100" Aspect="AspectFill" Grid.Column="0" />
+                            <VerticalStackLayout Grid.Column="1" Padding="10,0,0,0" VerticalOptions="Center">
+                                <Label Text="{Binding Title}" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding Author}" TextColor="Gray" FontSize="14" />
+                                <Label Text="{Binding Pages, StringFormat='Сторінок: {0}'}" TextColor="#2196F3" FontSize="12" Margin="0,5,0,0" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
